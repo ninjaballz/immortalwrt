@@ -94,16 +94,20 @@ define U-Boot/roc-cc-rk3328
     firefly_roc-rk3328-cc
 endef
 
-define U-Boot/evb-rk3528
+# RK3528 boards
+
+define U-Boot/rk3528/Default
   BUILD_SUBTARGET:=armv8
-  NAME:=RK3528 Evaluation
-  BUILD_DEVICES:= \
-    armsom_sige1
-  DEPENDS:=+PACKAGE_u-boot-evb-rk3528:rkbin-rk3528
+  DEPENDS:=+PACKAGE_u-boot-$(1):rkbin-rk3528
   ATF:=rk3528_bl31_v1.17.elf
-  DDR:=rk3528_ddr_1056MHz_v1.10.bin
-  UBOOT_CONFIG:=rk3528
-  SOC:=rk3528
+  TPL:=rk3528_ddr_1056MHz_v1.10.bin
+endef
+
+define U-Boot/generic-rk3528
+  $(U-Boot/rk3528/Default)
+  NAME:=GENERIC RK3528
+  BUILD_DEVICES:= \
+    hinlink_opc-h29k
 endef
 
 define U-Boot/rock-pi-e-rk3328
