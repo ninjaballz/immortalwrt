@@ -61,7 +61,7 @@ define Device/hinlink_opc-h29k
   SOC := rk3528
   UBOOT_DEVICE_NAME := generic-rk3528
   IMAGE/sysupgrade.img.gz := boot-common | boot-script rk3528 | pine64-img | gzip | append-metadata
-  DEVICE_PACKAGES := kmod-aic8800s kmod-fb-tft-st7789v wpad-openssl -urngd
+  DEVICE_PACKAGES := kmod-fb-tft-st7789v wpad-openssl -urngd
 endef
 TARGET_DEVICES += hinlink_opc-h29k
 
